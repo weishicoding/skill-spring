@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import ThemeProvider from "./components/ThemeProvider";
+import ProgressProvider from "./components/ProgressProvider";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import TailwindIndicator from "./components/TailwindIndicator";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +34,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SpeedInsights />
+        <ThemeProvider attribute="class" enableSystem={false}>
+          <ProgressProvider>
+            <Header />
+            <main className="static mx-auto max-w-5xl px-8 py-24 md:mb-16">
+              {children}
+            </main>
+            <Footer />
+            <TailwindIndicator />
+          </ProgressProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
