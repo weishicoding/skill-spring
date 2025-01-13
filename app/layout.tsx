@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -7,16 +8,31 @@ import ProgressProvider from "./components/ProgressProvider";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TailwindIndicator from "./components/TailwindIndicator";
+import { cn } from "@/utils/utils";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const biotif = localFont({
+  src: [
+    {
+      path: "../styles/fonts/Biotif-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../styles/fonts/Biotif-RegularItalic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../styles/fonts/Biotif-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -30,10 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="it-IT">
+      <body className={cn(inter.className, biotif.className)}>
         <SpeedInsights />
         <ThemeProvider attribute="class" enableSystem={false}>
           <ProgressProvider>
