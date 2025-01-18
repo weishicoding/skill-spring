@@ -3,11 +3,11 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import ThemeProvider from "./components/ThemeProvider";
-import ProgressProvider from "./components/ProgressProvider";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import TailwindIndicator from "./components/TailwindIndicator";
+import ThemeProvider from "../components/ThemeProvider";
+import ProgressProvider from "../components/ProgressProvider";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import TailwindIndicator from "../components/TailwindIndicator";
 import { cn } from "@/utils/utils";
 
 const inter = Inter({
